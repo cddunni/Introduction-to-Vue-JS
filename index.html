@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE JS day 1</title>
+</head>
+<body>
+    <div id= data>
+        Welcome to Vue Js
+
+        <!-- template string or interpolation => {{ }}-->
+        <p>{{greeting}}</p>
+        <button v-on:click="greet">CLICK ME</button>
+
+
+        <!--List Rendering-->
+        <ul v-for="name in names">
+            <li> {{ name }}</li>
+        </ul>
+
+
+        <!-- v-model -->
+        <input type="text" placeholder="name" v-model="name"/>
+        <p>My name is {{ name }}</p>
+
+
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="script.js"></script>
+</html>

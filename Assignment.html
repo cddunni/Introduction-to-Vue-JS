@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Day 1</title>
+    <link rel="stylesheet" href="Assignment.css">
+</head>
+<body>
+    <div id="app">
+        <div class='time'>
+            <h4 v-if = "currentTime < 12">Welcome, Good morning.</h4>
+            <!-- <h2 v-if = "17 > currentTime > 12 ">Welcome, Good afternoon.</h2> -->
+            <h2 v-else>Welcome, Good evening.</h2>
+        </div>
+        <div class='sidebar'>
+          <div style="width:30%; padding: 50px 30px; height: 100vh; ">
+            <h1>Personal Information</h1>
+            <h3>Get to know me!</h3>
+            <!-- <p>{{personalInfo.lastName}}</p> -->
+            <div class="details">
+                <p><span>First Name</span>: {{personalInfo.firstName}}</p>
+                <p><span>Last Name</span>: {{personalInfo.lastName}}</p>
+                <p><span>Occupation:</span> {{personalInfo.occupation}}</p>
+            </div>
+            <ol v-if="foodVisibility">
+                <li v-for="food in favouriteFoods">{{food}}</li>
+            </ol>
+            <button v-on:click="showFoods" class="btn"> Favourite Foods</button>
+              <ol v-if="countryVisibility">
+                <li v-for="country in favouriteCountries">{{country}}</li>
+              </ol>
+            <button v-on:click="showCountries" class="btn">Favourite Countries</button>
+          </div>
+          <div class="form_table"> 
+            <div >     
+          <form action="" id="form">
+        <h2>Create an account</h2>
+        <div class="field">
+              <div class="input-area">
+                <input type="text" placeholder= "Username" class="email" v-model="formData.userName">
+              </div>
+              <span class="what"></span>
+        </div>
+        <div class="field">
+          <div class="input-area">
+            <input type="text" placeholder= "youremail@domain.com" class="email" v-model="formData.email">
+          </div>
+          <span class="what"></span>
+      </div>
+        <div class="field">
+          <div class="input-area">
+            <input type="number" placeholder="Phone Number" class="password" v-model="formData.phoneNumber"> 
+          </div>
+          <p class='whatp'></p>
+        </div>
+        <!-- <div class="pass-txt">
+          <div class='checky'>
+          <input type="checkbox" checked="checked" class="checkbox">
+          <label class="container">Remember me
+          <span class="checkmark"></span>
+          </label>
+          </div>
+          <a href="#">Forgot password?</a>
+        </div> -->
+        <button @click.prevent= "submit" class="login-btn" >Submit</button>
+      <div class="sign-txt">Not yet member? <a href="#">Signup now</a></div>
+          </form>
+            </div>
+          <table>
+            <tr>
+              <th>Username</th>
+              <th>Phone number</th>
+              <th>Email address</th>
+            </tr>
+            <tr v-for="data in tableData">
+              <td>{{ data.userName }}</td>
+              <td>{{ data.phoneNumber }}</td>
+              <td>{{ data.email }}</td>
+            </tr>
+          </table>
+          </div>
+      </div>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="Assignment.js"></script>
+</html>
